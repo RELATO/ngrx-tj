@@ -1,0 +1,5 @@
+GET http://localhost:3000/movies/734098 HTTP/1.1
+
+GET http://localhost:3000/heroes HTTP/1.1
+
+GET http://localhost:3000/heroes/?name=Ju HTTP/1.1
