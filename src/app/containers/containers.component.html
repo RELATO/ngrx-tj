@@ -1,0 +1,35 @@
+<ng-container *ngIf="loading$ | async">
+  loading...<br>
+</ng-container>
+
+<ng-container *ngIf="containers$ | async as containers">
+  Containers count: {{containers.length}} <br>
+  <button (click)="add()">Add</button>
+  <button (click)="update()">Update First</button>
+  <button (click)="updateFailed()">Update Second Failed</button>
+  <button (click)="delete()">Delete First</button>
+  <button (click)="getById(1)">Get First</button>
+  <button (click)="getWithQuery()">Query</button><br>
+  <input placeholder="search by name" name="query"
+  [ngModel]="query" (ngModelChange)="queryChanged($event)" type="search"> 
+  <table id="containers">
+    <th>
+      id
+    </th>
+    <th>
+      name
+    </th>
+    <th>
+      fullName
+    </th> 
+  <tr *ngFor="let container of containers">
+    <td>{{container.id}}</td>
+    <td>{{container.name}}</td>
+    <td>{{container.fullName}}</td>
+  </tr>
+  </table>
+<ng-container *ngIf="page$ | async as page">
+ 
+  <button (click)="getWithQuery(page.pageIndex - 1)" [disabled]="!page.pageIndex || page.pageIndex <=1">Prev</button><button (click)="getWithQuery(page.pageIndex + 1)" [disabled]="!page.pageIndex ||page.pageIndex >= page.pageCount">Next</button>
+</ng-container>
+</ng-container>
