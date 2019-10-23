@@ -1,5 +1,11 @@
 # NgrxTj
 
+## Some nice references
+
+https://github.com/starjumper30/toh-ngrx8
+
+https://github.com/johnpapa/heroes-angular
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
 
 ## Development server
