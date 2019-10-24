@@ -69,12 +69,12 @@ import { ContainersComponent } from './containers/containers.component';
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-      dataEncapsulation: false,
-    }),
-    // HttpClientInMemoryWebApiModule.forRoot(ContainerInMemDataService, {
-    //   delay: 1000,
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+    //   dataEncapsulation: false,
     // }),
+    HttpClientInMemoryWebApiModule.forRoot(ContainerInMemDataService, {
+      delay: 1000,
+    }),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [
