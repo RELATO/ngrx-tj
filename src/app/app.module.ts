@@ -13,6 +13,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroListEffects } from './hero-list.effects';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { InMemoryDataService } from './in-memory-data.service';
 import { MessagesComponent } from './messages/messages.component';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
@@ -65,9 +66,15 @@ import { ContainersComponent } from './containers/containers.component';
       },
     }),
     EntityDataModule.forRoot(entityConfig),
-    HttpClientInMemoryWebApiModule.forRoot(ContainerInMemDataService, {
-      delay: 1000,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
     }),
+    // HttpClientInMemoryWebApiModule.forRoot(ContainerInMemDataService, {
+    //   delay: 1000,
+    // }),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [

@@ -13,7 +13,7 @@ const httpOptions = {
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
-  private heroesUrl = 'http://localhost:3000/heroes'; // URL to web api
+  private heroesUrl = 'api/hero'; // URL to web api
 
   constructor(
     private http: HttpClient,

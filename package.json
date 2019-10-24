@@ -3,11 +3,15 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json --open",
+    "start-dist": "WWW=dist/heroes-angular node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "quick": "concurrently \"npm run backend\" \"npm run start\"",
+    "cypress": "npx cypress open",
+    "e2e": "concurrently \"npm run quick\" \"npm run cypress\"",
+    "backend": "json-server --watch db.json --routes routes.json --port 3003 --middlewares ./node_modules/json-server-reset"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +47,8 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
+    "concurrently": "^5.0.0",
+    "cypress": "^3.5.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "json-server": "^0.15.1",
